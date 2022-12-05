@@ -1,37 +1,31 @@
 #include<iostream>
-using namespace std;
+using namespace std ;
 int main()
 {
-    int n;
-    cin>>n;
-    int a[n];
-    int minn= INT_MAX;
-    int maxx= INT_MIN;
-    for(int i=0 ; i<n ; i++)
+    int a , b;
+    string S;
+    cin>>a>>b;
+    cin>>S;
+    if (S[a]!='-')
     {
-        cin>>a[i];
-        minn= min(minn , a[i]);
-        maxx= max(maxx, a[i]);
-        
+        cout<<"No"<<endl;
+        return 0;
     }
-    int posmax;
-    int posmin;
-    for (int i=0 ; i<n ; i++)
+    int len = S.length();
+    bool ch=0;
+    for (int i=0 ; i<len ; i++)
     {
-        if(a[i]==maxx)
-            posmax=i;
-        else if(a[i]==minn)
-            posmin=i;
+        if((S[i]<'0' || S[i]>'9')&& i!=a)
+        {
+            ch=1;
+        }
     }
-    int temp;
-    temp= a[posmax];
-a[posmax]= a[posmin];
-a[posmin]=temp;
+    if(ch==0)
+    {
+        cout<<"Yes"<<endl;
+    }
+    else
+        cout<<"No"<<endl;
+    return 0;
     
-    for (int k=0 ; k<n ; k++)
-    {
-        cout<<a[k]<<" ";
-    }
 }
-
-
